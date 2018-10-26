@@ -98,10 +98,6 @@ html {
             &:not(:last-child) {
                 border-bottom: solid 3px #f0f0f0;
             }
-
-            @media print {
-                break-inside: avoid;
-            }
         }
 
         * {
