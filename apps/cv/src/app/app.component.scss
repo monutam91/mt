@@ -1,19 +1,87 @@
 div.cv-app-root {
     display: grid;
-    grid-template: max-content 1fr / 1fr max-content;
+    grid-template: 8rem 1fr / 1fr 36rem;
     grid-template-areas:
         'header profile'
         'cv profile';
+    grid-gap: 4rem;
 
     overflow: hidden;
+    height: 100%;
+    padding: 4rem;
 
     > div.header {
         display: grid;
-        grid-template: max-content / repeat(2, max-content);
-        grid-area: 'header';
+        grid-template: max-content / 8rem 1fr;
+        grid-template-areas: 'logo contacts';
+
+        grid-area: header;
+
+        > img {
+            grid-area: logo;
+        }
+
+        > div.contacts {
+            display: grid;
+            grid-template: 1fr / repeat(3, max-content);
+
+            align-items: center;
+            grid-gap: 8rem;
+            grid-area: contacts;
+
+            border-top: solid 1px var(--border-color);
+            border-right: solid 1px var(--border-color);
+            border-bottom: solid 1px var(--border-color);
+            padding: 0 4rem;
+        }
     }
 
     > div.info {
-        grid-area: 'cv';
+        grid-area: cv;
+    }
+
+    > div.profile {
+        display: grid;
+        grid-template: max-content 1fr max-content / max-content 1fr max-content;
+        grid-template-areas:
+            'birthday . qr'
+            '. . .'
+            'profession . .';
+        grid-area: profile;
+
+        background-image: url('../assets/images/me.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 2rem;
+        position: relative;
+
+        > div.birthday {
+            align-self: start;
+            justify-self: start;
+            grid-area: birthday;
+
+            transform: rotate(90deg);
+            position: absolute;
+            top: 1.5rem;
+            left: -1.5rem;
+        }
+
+        > img.qr-code {
+            grid-area: qr;
+            align-self: start;
+            justify-self: end;
+
+            width: 5rem;
+            height: 5rem;
+        }
+
+        > div.profession {
+            display: grid;
+            grid-gap: 1rem;
+            grid-area: profession;
+            align-self: end;
+            justify-self: start;
+        }
     }
 }
