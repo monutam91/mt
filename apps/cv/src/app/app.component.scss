@@ -17,8 +17,11 @@ div.cv-app-root {
 
         grid-area: header;
 
-        > img {
+        > svg {
             grid-area: logo;
+            background-color: white;
+            width: 8rem;
+            height: 8rem;
         }
 
         > div.contacts {

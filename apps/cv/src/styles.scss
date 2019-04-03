@@ -1,64 +1,6 @@
 @font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-Regular.ttf');
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-Italic.ttf');
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-BoldItalic.ttf');
-    font-weight: bold;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-Black.ttf');
-    font-weight: 900;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-BlackItalic.ttf');
-    font-weight: 900;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-Light.ttf');
-    font-weight: 200;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-LightItalic.ttf');
-    font-weight: 200;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-Medium.ttf');
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'Rubik';
-    src: url('./assets/fonts/Rubik/Rubik-MediumItalic.ttf');
-    font-weight: 600;
-    font-style: italic;
+    font-family: 'New Rail Alphabet';
+    src: url('./assets/fonts/A2-Type-New-Rail-Alphabet-Bold.otf');
 }
 
 @import './styles/colors';
@@ -75,6 +17,10 @@ html {
         overflow: hidden;
         box-sizing: border-box;
 
+        background-image: url('./assets/images/monutam-bgr.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
         mt-root {
             overflow: hidden;
         }
@@ -82,6 +28,9 @@ html {
         * {
             color: var(--font-color);
             box-sizing: border-box;
+            font-family: 'New Rail Alphabet';
+            font-size: 1.3rem;
+            line-height: 1.538;
 
             &[accent] {
                 color: var(--accent);
@@ -95,66 +44,5 @@ html {
                 color: var(--font-color-contrast);
             }
         }
-
-        // h1,
-        // h2,
-        // h3,
-        // h4 {
-        //     margin: 0;
-        //     line-height: 1.25;
-        // }
-
-        // h1 {
-        //     font-size: 36px;
-        // }
-
-        // h2 {
-        //     font-size: 24px;
-        // }
-
-        // h4 {
-        //     font-weight: 400;
-        // }
-
-        // section {
-        //     display: grid;
-        //     grid-gap: 25px;
-        //     padding: 25px 0;
-        //     overflow: hidden;
-
-        //     &:not(:last-child) {
-        //         border-bottom: solid 3px #f0f0f0;
-        //     }
-        // }
-
-        // * {
-        //     font-family: Rubik;
-
-        //     [emphasized] {
-        //         color: #2196f3;
-        //     }
-
-        //     &[secondary] {
-        //         color: #bbb;
-        //     }
-
-        //     &[field-name] {
-        //         color: #2196f3;
-        //         font-weight: 200;
-        //         text-transform: uppercase;
-        //     }
-        // }
-    }
-
-    &:after {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: linear-gradient(to bottom right, var(--overlay-start-color), var(--overlay-end-color));
-
-        pointer-events: none;
     }
 }
