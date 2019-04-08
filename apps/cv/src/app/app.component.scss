@@ -1,6 +1,6 @@
 div.cv-app-root {
     display: grid;
-    grid-template: 8rem 1fr / 1fr 36rem;
+    grid-template: 80px 1fr / 80fr 36fr;
     grid-template-areas:
         'header profile'
         'cv profile';
@@ -12,7 +12,7 @@ div.cv-app-root {
 
     > div.header {
         display: grid;
-        grid-template: max-content / 8rem 1fr;
+        grid-template: max-content / 80px 1fr;
         grid-template-areas: 'logo contacts';
 
         grid-area: header;
@@ -20,27 +20,28 @@ div.cv-app-root {
         > svg {
             grid-area: logo;
             background-color: white;
-            width: 8rem;
-            height: 8rem;
+            width: 80px;
+            height: 80px;
         }
 
         > div.contacts {
-            display: grid;
-            grid-template: 1fr / repeat(3, max-content);
-
+            display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            grid-gap: 8rem;
+
             grid-area: contacts;
 
-            border-top: solid 1px var(--border-color);
-            border-right: solid 1px var(--border-color);
-            border-bottom: solid 1px var(--border-color);
-            padding: 0 4rem;
+            border: solid 1px var(--border-color);
+
+            > * {
+                padding: 15px 40px;
+            }
         }
     }
 
     > div.info {
         grid-area: cv;
+        padding: 0 12rem 0 4rem;
     }
 
     > div.profile {
@@ -52,22 +53,24 @@ div.cv-app-root {
             'profession . .';
         grid-area: profile;
 
-        background-image: url('../assets/images/me.jpg');
+        background-image: url('../assets/images/i-am-monutam.png');
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
-        padding: 2rem;
+        padding: 15px;
         position: relative;
 
         > div.birthday {
             align-self: start;
             justify-self: start;
             grid-area: birthday;
-
+            
+            font-family: 'Klavika';
+            font-weight: bold;
             transform: rotate(90deg);
             position: absolute;
-            top: 1.5rem;
-            left: -1.5rem;
+            top: 18px;
+            left: -18px;
         }
 
         > img.qr-code {
@@ -81,9 +84,7 @@ div.cv-app-root {
 
         > div.profession {
             display: grid;
-            grid-gap: 1rem;
             grid-area: profession;
-            align-self: end;
             justify-self: start;
         }
     }

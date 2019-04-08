@@ -1,6 +1,12 @@
 @font-face {
     font-family: 'New Rail Alphabet';
-    src: url('./assets/fonts/A2-Type-New-Rail-Alphabet-Bold.otf');
+    src: url('./assets/fonts/A2-Type-New-Rail-Alphabet-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Klavika';
+    src: url('./assets/fonts/KlavikaBoldBold.otf') format('opentype');
+    font-weight: bold;
 }
 
 @import './styles/colors';
@@ -18,7 +24,7 @@ html {
         box-sizing: border-box;
 
         background-image: url('./assets/images/monutam-bgr.jpg');
-        background-size: 100%;
+        background-size: cover;
         background-repeat: no-repeat;
 
         mt-root {
@@ -29,7 +35,7 @@ html {
             color: var(--font-color);
             box-sizing: border-box;
             font-family: 'New Rail Alphabet';
-            font-size: 1.3rem;
+            font-size: 14px;
             line-height: 1.538;
 
             &[accent] {
