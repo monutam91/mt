@@ -69,43 +69,40 @@
             }
         }
 
-        > div.info {
-            display: grid;
-            grid-template: 1fr / 1fr;
-
+        mt-infos {
             grid-area: cv;
-            border: solid 1px var(--border-color);
-            padding: 8rem 4rem;
-            overflow: hidden;
-
-            div.items-container {
-                display: grid;
-                grid-gap: 2.5rem;
-
-                padding-right: 6rem;
-                overflow: auto;
-
-                &::-webkit-scrollbar {
-                    width: 1px;
-                    background: transparent;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    background: var(--scrollbar-background-color);
-                }
-
-                &::-webkit-scrollbar-button {
-                    width: 1px;
-                    height: 1px;
-                    background: var(--scrollbar-background-color);
-                    margin: 9px 0;
-                }
-            }
         }
+
+        // > div.info {
+
+        //     div.items-container {
+        //         display: grid;
+        //         grid-gap: 2.5rem;
+
+        //         padding-right: 6rem;
+        //         overflow: auto;
+
+        //         &::-webkit-scrollbar {
+        //             width: 1px;
+        //             background: transparent;
+        //         }
+
+        //         &::-webkit-scrollbar-track {
+        //             background: transparent;
+        //         }
+
+        //         &::-webkit-scrollbar-thumb {
+        //             background: var(--scrollbar-background-color);
+        //         }
+
+        //         &::-webkit-scrollbar-button {
+        //             width: 1px;
+        //             height: 1px;
+        //             background: var(--scrollbar-background-color);
+        //             margin: 9px 0;
+        //         }
+        //     }
+        // }
 
         > div.profile {
             display: grid;

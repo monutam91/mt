@@ -129,6 +129,9 @@
         },
         "@nrwl/schematics:node-application": {
             "framework": "express"
+        },
+        "@nrwl/schematics:component": {
+            "styleext": "scss"
         }
     }
 }
