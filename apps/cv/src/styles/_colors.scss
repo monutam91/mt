@@ -1,6 +1,7 @@
 :root {
-    --accent: rgb(51, 119, 255);
-    --background-color: transparent;
+    --accent: #3377ff;
+    --icon-background: #fff;
+    --background-color: #09131a;
     --font-color: rgba(255, 255, 255, 0.2);
     --emphasized-font-color: #fff;
     --font-color-contrast: #000;
@@ -10,4 +11,8 @@
     --overlay-end-color: rgba(255, 255, 255, 0.3);
 
     --scrollbar-background-color: #fff;
+
+    @media print {
+        --scrollbar-background-color: transparent;
+    }
 }

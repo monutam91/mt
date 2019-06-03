@@ -115,7 +115,7 @@
             "typescriptMismatch": false,
             "versionMismatch": false
         },
-        "defaultCollection": "@nrwl/schematics"
+        "defaultCollection": "@nrwl/angular"
     },
     "defaultProject": "cv",
     "schematics": {

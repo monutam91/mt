@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MtInfoItemComponent } from './info-item.component';
+import { LabelValueComponent } from './label-value.component';
 
-describe('InfoItemComponent', () => {
-    let component: MtInfoItemComponent;
-    let fixture: ComponentFixture<MtInfoItemComponent>;
+describe('LabelValueComponent', () => {
+    let component: LabelValueComponent;
+    let fixture: ComponentFixture<LabelValueComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [MtInfoItemComponent]
+            declarations: [LabelValueComponent]
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(MtInfoItemComponent);
+        fixture = TestBed.createComponent(LabelValueComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

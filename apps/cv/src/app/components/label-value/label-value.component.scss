@@ -1,0 +1,11 @@
+:host {
+    div.mt-label-value {
+        display: grid;
+        grid-template: repeat(2, max-content) / max-content;
+
+        div.values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(max-content, 1px));
+        }
+    }
+}
