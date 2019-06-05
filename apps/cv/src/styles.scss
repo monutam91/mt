@@ -12,6 +12,10 @@
 @import './styles/colors';
 @import './styles/responsive';
 
+@page {
+    margin: 0mm;
+}
+
 html {
     @include poly-fluid-sizing(
         'font-size',
@@ -21,7 +25,9 @@ html {
             1920px: 15px
         )
     );
+
     box-sizing: border-box;
+
     body {
         background: var(--background-color);
         width: 100vw;
@@ -32,21 +38,26 @@ html {
         background-image: url('./assets/images/monutam-bgr.jpg');
         background-size: cover;
         background-repeat: no-repeat;
+
         mt-root {
             overflow: hidden;
         }
+
         * {
             color: var(--font-color);
             box-sizing: border-box;
             font-family: 'New Rail Alphabet';
             font-size: 14px;
             line-height: 1.538;
+
             &[accent] {
                 color: var(--accent);
             }
+
             &[emphasized] {
                 color: var(--emphasized-font-color);
             }
+
             &[contrast] {
                 color: var(--font-color-contrast);
             }

@@ -31,5 +31,14 @@
             white-space: pre-wrap;
             word-break: break-word;
         }
+
+        &[small] {
+            grid-template: max-content max-content / 1fr;
+            grid-gap: 2.5rem;
+
+            > div.info-title {
+                grid-gap: 2rem;
+            }
+        }
     }
 }

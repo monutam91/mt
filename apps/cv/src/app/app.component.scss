@@ -73,37 +73,6 @@
             grid-area: cv;
         }
 
-        // > div.info {
-
-        //     div.items-container {
-        //         display: grid;
-        //         grid-gap: 2.5rem;
-
-        //         padding-right: 6rem;
-        //         overflow: auto;
-
-        //         &::-webkit-scrollbar {
-        //             width: 1px;
-        //             background: transparent;
-        //         }
-
-        //         &::-webkit-scrollbar-track {
-        //             background: transparent;
-        //         }
-
-        //         &::-webkit-scrollbar-thumb {
-        //             background: var(--scrollbar-background-color);
-        //         }
-
-        //         &::-webkit-scrollbar-button {
-        //             width: 1px;
-        //             height: 1px;
-        //             background: var(--scrollbar-background-color);
-        //             margin: 9px 0;
-        //         }
-        //     }
-        // }
-
         > div.profile {
             display: grid;
             grid-template: 1fr / 1fr;
@@ -159,7 +128,7 @@
             }
         }
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 800px), (orientation: portrait) {
             grid-template: 80px max-content max-content / 1fr;
             grid-template-areas:
                 'header'
@@ -183,6 +152,7 @@
                     width: 100%;
                     height: calc(100vh - 80px - 4rem);
                     max-height: 750px;
+                    min-height: 600px;
                 }
             }
 
