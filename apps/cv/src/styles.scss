@@ -13,7 +13,9 @@
 @import './styles/responsive';
 
 @page {
+    size: A5;
     margin: 0mm;
+    background: var(--background-color);
 }
 
 html {
@@ -38,6 +40,23 @@ html {
         background-image: url('./assets/images/monutam-bgr.jpg');
         background-size: cover;
         background-repeat: no-repeat;
+        color-adjust: exact;
+
+        @media print {
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-image: linear-gradient(var(--background-color), var(--background-color));
+
+            mt-root {
+                .cv-app-root {
+                    mt-infos {
+                        .mt-infos {
+                            border: none !important;
+                        }
+                    }
+                }
+            }
+        }
 
         mt-root {
             overflow: hidden;
