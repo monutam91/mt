@@ -37,29 +37,11 @@ html {
         margin: 0;
         overflow: hidden;
         box-sizing: border-box;
-        background-image: url('./assets/images/monutam-bgr.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
         color-adjust: exact;
-
-        @media print {
-            overflow-x: hidden;
-            overflow-y: auto;
-            background-image: linear-gradient(var(--background-color), var(--background-color));
-
-            mt-root {
-                .cv-app-root {
-                    mt-infos {
-                        .mt-infos {
-                            border: none !important;
-                        }
-                    }
-                }
-            }
-        }
 
         mt-root {
             overflow: hidden;
+            height: 100%;
         }
 
         * {
@@ -79,6 +61,60 @@ html {
 
             &[contrast] {
                 color: var(--font-color-contrast);
+            }
+
+            &.page-break {
+                display: none;
+                page-break-before: always;
+            }
+
+            @media print {
+                &.page-break {
+                    display: block;
+                }
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-background-color);
+        }
+
+        &::-webkit-scrollbar-button {
+            width: 1px;
+            height: 1px;
+            background: var(--scrollbar-background-color);
+            margin: 9px 0;
+        }
+
+        @media print, screen and (max-width: 1000px), (orientation: portrait) {
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            mt-root {
+                height: initial;
+            }
+        }
+
+        @media print {
+            background-image: linear-gradient(var(--background-color), var(--background-color));
+
+            mt-root {
+                .cv-app-root {
+                    mt-infos {
+                        .mt-infos {
+                            border: none !important;
+                        }
+                    }
+                }
             }
         }
     }
