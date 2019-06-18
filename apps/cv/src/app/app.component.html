@@ -3,15 +3,15 @@
         <svg><use xlink:href="../assets/svgs/icons.svg#tm-logo"></use></svg>
         <div class="contacts">
             <mt-label-value>
-                <div accent mt-label>Tamás</div>
-                <div emphasized>Mónus</div>
+                <div accent mt-label>{{ 'header.name.part_1' | translate }}</div>
+                <div emphasized>{{ 'header.name.part_2' | translate }}</div>
             </mt-label-value>
             <mt-label-value class="phone">
-                <div mt-label>Phone</div>
+                <div mt-label>{{ 'header.phone.label' | translate }}</div>
                 <a href="tel:+36303749817">+36 30 374 9817</a>
             </mt-label-value>
             <mt-label-value class="label-value email">
-                <div mt-label>Email</div>
+                <div mt-label>{{ 'header.email.label' | translate }}</div>
                 <a href="mailto:monutam91@gmail.com">monutam91@gmail.com</a>
             </mt-label-value>
         </div>
@@ -19,56 +19,33 @@
 
     <mt-infos>
         <mt-info-item>
-            <span mt-title emphasized>Summary</span>
-
-            I'm eager to find solutions to challenging tasks in every field of Software Engineering and also like to
-            take part in the company's cultural tasks. During my work I try to find the best solution in the given time.
-            I have experience in .NET based applications (ASP.NET, WPF, Windows 8.1 apps and UWP) and also in Full Stack
-            systems written in Javascript. (NodeJS, Angular) I designed and developed SOA and regular REST based systems
-            as well, written in NodeJS.
+            <span mt-title emphasized>{{ 'infos.summary.title' | translate }}</span>
+            {{ 'infos.summary.description' | translate }}
         </mt-info-item>
         <mt-info-item>
-            <span mt-title emphasized>Experience</span>
-
-            <div class="subitem">
-                <span emphasized>Web Developer | February 2019 - Present</span>
-                <div class="description">
-                    I started to work as part of a team of 5 people consists of Back End and Front End developers. We
-                    are working closely together to create Web Applications. I am further improving my skills in Angular
-                    development.
-                </div>
-            </div>
-            <div class="subitem">
-                <span emphasized>Web Developer | April 2016 - February 2019 (3 years)</span>
-                <div class="description">
-                    We started to research the possibilites of the Angular framework at its first beta release and I am
-                    working with it since then. Thus, I have a wide range of experience with it. Now, I develop
-                    applications and libraries and also giving advices and supervising other Angular projects inside the
-                    company. During my work, I also created full stack applications including both Back End and Front
-                    End solutions. I have gained experience in SOA and regular REST based Back End services, written in
-                    NodeJS. Additionally, I have some experience in FireBase.
-                </div>
-            </div>
-            <div class="subitem">
-                <span emphasized>.NET Developer | April 2014 - April 2016 (2 years)</span>
-                <div class="description">
-                    I have to find solutions to unique problems and tasks, cooperating with other team members or by
-                    myself. I have some experience in developing ASP.NET Web applications, but mostly I worked on WPF,
-                    Windows 8-8.1 and UWP applications.
-                </div>
-            </div>
+            <span mt-title emphasized>{{ 'infos.fun-fact.title' | translate }}</span>
+            {{ 'infos.fun-fact.description' | translate }}
         </mt-info-item>
-        <div class="page-break"></div>
         <mt-info-item>
-            <span mt-title emphasized>Education</span>
+            <span mt-title emphasized>{{ 'infos.experiences.title' | translate }}</span>
 
             <div class="subitem">
-                <span>University of Szeged | Computer Scientist Msc</span>
-                <div class="description">( 2013 - 2015 )</div>
+                <span emphasized>{{ 'infos.experiences.nitro.title' | translate }}</span>
+                <div class="description">
+                    {{ 'infos.experiences.nitro.description' | translate }}
+                </div>
             </div>
             <div class="subitem">
-                <span>University of Szeged | Software Information Technologist Bsc</span>
-                <div class="description">( 2010 - 2013 )</div>
+                <span emphasized>{{ 'infos.experiences.cas-angular.title' | translate }}</span>
+                <div class="description">
+                    {{ 'infos.experiences.cas-angular.description' | translate }}
+                </div>
+            </div>
+            <div class="subitem">
+                <span emphasized>{{ 'infos.experiences.cas-NET.title' | translate }}</span>
+                <div class="description">
+                    {{ 'infos.experiences.cas-NET.description' | translate }}
+                </div>
             </div>
         </mt-info-item>
     </mt-infos>
@@ -76,11 +53,15 @@
     <div class="profile">
         <img src="../assets/images/i-am-monutam.png" />
         <div class="profile-infos">
-            <div class="birthday" contrast><span>1991</span><span>04</span><span>15</span></div>
+            <div class="birthday" contrast>
+                <span>{{ 'profile.birthday.year' | translate }}</span>
+                <span>{{ 'profile.birthday.month' | translate }}</span>
+                <span>{{ 'profile.birthday.day' | translate }}</span>
+            </div>
             <img class="qr-code" src="../assets/images/cv-qr.png" />
             <div emphasized class="profession">
-                <div emphasized>Software</div>
-                <div emphasized>Engineer</div>
+                <div emphasized>{{ 'profile.profession.software' | translate }}</div>
+                <div emphasized>{{ 'profile.profession.engineer' | translate }}</div>
             </div>
         </div>
     </div>

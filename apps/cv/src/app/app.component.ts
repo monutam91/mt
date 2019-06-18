@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'mt-root',
@@ -6,4 +7,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     styleUrls: ['./app.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent {
+    constructor(private _translateService: TranslateService) {
+        _translateService.setDefaultLang('hu');
+    }
+}
