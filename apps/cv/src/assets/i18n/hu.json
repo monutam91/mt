@@ -23,15 +23,15 @@
         "experiences": {
             "title": "Tapasztalatok",
             "nitro": {
-                "title": "Web fejlesztő | 2019 Február - Jelenleg",
+                "title": "Web Fejlesztő | 2019 Február - Jelenleg",
                 "description": "Egy 5 fős csapatot erősítve készítettünk el több Angularos webalkalmazást, mely során a Back End fejlesztőivel szorosan együttműködtünk, alkalmanként pedig Front End vezérelte módon is dolgoztunk. A projektek során ismét szükség volt automata tesztek írására unit és End-To-End tesztek formájában is."
             },
             "cas-angular": {
-                "title": "Web fejlesztő | 2016 Április - 2019 Február (3 év)",
+                "title": "Web Fejlesztő | 2016 Április - 2019 Február (3 év)",
                 "description": "A csapatunk kutatta a cégen belül az Angular és egyéb Webes technológiák lehetőségeit, mint egy egyedi Cross Platform framework és API lehetséges alapját. Kutatásunk során mélységeiben megismerkedtem az Angular platformmal és lehetőségeivel. Valamint munkánk eredményeképpen elkészítettük az API első verzióját, mely publikálásra is került egy belső NPM repository keretein belül. Az API elkészítése során elsajátítottam az End-To-End tesztelés alapjait, melyet a projekt során használnom is kellett."
             },
             "cas-NET": {
-                "title": ".NET fejlesztő | 2014 Április - 2016 Április (2 év)",
+                "title": ".NET Fejlesztő | 2014 Április - 2016 Április (2 év)",
                 "description": "Msc egyetemi tanulmányaim mellett kezdtem el dolgozni, kezdetben, mint diák munkatárs, C# nyelven. Ennek során több különböző .NET technológiát megismertem, kezdetben ASP.NET webes alkalmazást fejlesztettem egy nagyobb csapat tagjaként SCRUM metodológiát követve. Majd egy másik csapat tagjaként elsajátítottam a Windows 8.1 fejlesztés alapjait, később pedig részt vettem egy Cross Platform keretrendszer előfejlesztési munkálataiban WPF, illetve UWP technológiákkal."
             }
         }
