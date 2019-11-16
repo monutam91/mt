@@ -39,6 +39,8 @@
         "@ngrx/effects": "7.2.0",
         "@ngrx/router-store": "7.2.0",
         "@ngrx/store": "7.2.0",
+        "@ngx-translate/core": "^11.0.1",
+        "@ngx-translate/http-loader": "^4.0.0",
         "@nrwl/angular": "8.0.0",
         "core-js": "^2.5.4",
         "resize-observer-polyfill": "^1.5.1",
