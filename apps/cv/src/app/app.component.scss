@@ -1,87 +1,183 @@
-div.cv-app-root {
-    display: grid;
-    grid-template: 8rem 1fr / 1fr 36rem;
-    grid-template-areas:
-        'header profile'
-        'cv profile';
-    grid-gap: 4rem;
+:host {
+    display: block;
 
-    overflow: hidden;
-    height: 100%;
-    padding: 4rem;
-
-    > div.header {
+    div.cv-app-root {
         display: grid;
-        grid-template: max-content / 8rem 1fr;
-        grid-template-areas: 'logo contacts';
-
-        grid-area: header;
-
-        > img {
-            grid-area: logo;
-        }
-
-        > div.contacts {
-            display: grid;
-            grid-template: 1fr / repeat(3, max-content);
-
-            align-items: center;
-            grid-gap: 8rem;
-            grid-area: contacts;
-
-            border-top: solid 1px var(--border-color);
-            border-right: solid 1px var(--border-color);
-            border-bottom: solid 1px var(--border-color);
-            padding: 0 4rem;
-        }
-    }
-
-    > div.info {
-        grid-area: cv;
-    }
-
-    > div.profile {
-        display: grid;
-        grid-template: max-content 1fr max-content / max-content 1fr max-content;
+        grid-template: 80px 1fr / 80fr 36fr;
         grid-template-areas:
-            'birthday . qr'
-            '. . .'
-            'profession . .';
-        grid-area: profile;
+            'header profile'
+            'cv profile';
+        grid-gap: 4rem;
 
-        background-image: url('../assets/images/me.jpg');
-        background-position: center;
+        overflow: hidden;
+        height: 100%;
+        padding: 4rem;
+
+        background-image: url('../assets/images/monutam-bgr.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-        padding: 2rem;
-        position: relative;
 
-        > div.birthday {
-            align-self: start;
-            justify-self: start;
-            grid-area: birthday;
-
-            transform: rotate(90deg);
-            position: absolute;
-            top: 1.5rem;
-            left: -1.5rem;
-        }
-
-        > img.qr-code {
-            grid-area: qr;
-            align-self: start;
-            justify-self: end;
-
-            width: 5rem;
-            height: 5rem;
-        }
-
-        > div.profession {
+        > div.header {
             display: grid;
-            grid-gap: 1rem;
-            grid-area: profession;
-            align-self: end;
-            justify-self: start;
+            grid-template: max-content / 80px 1fr;
+            grid-template-areas: 'logo contacts';
+
+            grid-area: header;
+
+            > svg {
+                grid-area: logo;
+                background-color: var(--icon-background);
+                width: 80px;
+                height: 80px;
+            }
+
+            > div.contacts {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+
+                grid-area: contacts;
+
+                border: solid 1px var(--border-color);
+                padding: 0 2rem;
+
+                a {
+                    text-decoration: none;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                > * {
+                    padding: 0 2rem;
+                }
+
+                @media screen and (max-width: 465px) {
+                    > mt-label-value.phone {
+                        display: none;
+                    }
+                }
+
+                @media screen and (max-width: 380px) {
+                    > mt-label-value.phone {
+                        * {
+                            display: none;
+                        }
+                    }
+
+                    > mt-label-value.email {
+                        * {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        mt-infos {
+            grid-area: cv;
+        }
+
+        > div.profile {
+            display: grid;
+            grid-template: 1fr / 1fr;
+
+            grid-area: profile;
+
+            > img {
+                grid-area: 1 / 1 / 2 / 2;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                min-width: 360px;
+            }
+
+            div.profile-infos {
+                display: grid;
+                grid-template: max-content 1fr max-content / max-content 1fr max-content;
+                grid-template-areas:
+                    'birthday . qr'
+                    '. . .'
+                    'profession . .';
+                grid-area: 1 / 1 / 2 / 2;
+
+                padding: 15px;
+                position: relative;
+
+                > div.birthday {
+                    align-self: start;
+                    justify-self: start;
+                    grid-area: birthday;
+
+                    font-family: 'Klavika';
+                    font-weight: bold;
+                    transform: rotate(90deg);
+                    position: absolute;
+                    top: 18px;
+                    left: -23px;
+
+                    > * {
+                        font-family: 'Klavika';
+                        font-weight: bold;
+                        color: inherit;
+                        margin: 1px;
+                    }
+                }
+
+                > img.qr-code {
+                    grid-area: qr;
+                    align-self: start;
+                    justify-self: end;
+
+                    width: 50px;
+                    height: 50px;
+                }
+
+                > div.profession {
+                    display: grid;
+                    grid-area: profession;
+                    justify-self: start;
+                }
+            }
+        }
+
+        @media screen and (max-width: 1000px), (orientation: portrait) {
+            grid-template: 80px max-content max-content / 1fr;
+            grid-template-areas:
+                'header'
+                'profile'
+                'cv';
+
+            padding: 0;
+            overflow: auto;
+            overflow: hidden;
+            height: initial;
+
+            > div.header {
+                > div.contacts {
+                    border-right: none;
+                }
+            }
+
+            div.profile {
+                justify-self: center;
+                max-width: 500px;
+
+                > img {
+                    width: 100%;
+                    height: calc(100vh - 80px - 4rem);
+                    max-height: 750px;
+                    min-height: 640px;
+                }
+            }
+        }
+    }
+
+    @media print {
+        div.cv-app-root {
+            overflow: hidden;
+            height: initial;
         }
     }
 }
