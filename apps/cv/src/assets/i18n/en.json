@@ -1,0 +1,61 @@
+{
+    "header": {
+        "name": {
+            "part_1": "Tamás",
+            "part_2": "Mónus"
+        },
+        "phone": {
+            "label": "Phone"
+        },
+        "email": {
+            "label": "Email"
+        }
+    },
+    "infos": {
+        "summary": {
+            "title": "Summary",
+            "description": "I love to solve complex and creative tasks in every aspects of software engineering, both on Front End and Back End. As I work, I search for the best solution, which can fulfill every needs of the customer, and also the most professional one. I have a high level experience in creating responsive user interfaces, as well as in developing Web APIs. Furthermore, I have gained experience in REST, SOA and FireBase server development."
+        },
+        "fun-fact": {
+            "title": "Interesting fact",
+            "description": "You can see, that I am thoroughly focusing on a task, when I have headphones over my ears and I am only available through Skype, even to the person sitting next to me."
+        },
+        "experiences": {
+            "title": "Experience",
+            "nitro": {
+                "title": "Web Developer | February 2019 - Present",
+                "description": "As a part of a team of 5 person, we created several Angular web applications, during which we were closely cooperated with the Back End developers, occasionally we also worked in a Front End driven manner. During the development of these projects, there was a need to write automated tests, unit and End-To-End as well."
+            },
+            "cas-angular": {
+                "title": "Web Developer | April 2016 - February 2019 (3 years)",
+                "description": "Inside the company, our team was responsible for researching the possibilities of Angular and other Web technologies, as the base of a unique Cross Platform framework and API. During our research, I got to know the Angular platform and its possibilities in depth. Also, as a result of our work, we developed the first version of the API, which we also publicated inside a corporate NPM repository. As part of the development of this API, I also learned the basics of End-To-End testing, which I had to use to test our framework."
+            },
+            "cas-NET": {
+                "title": ".NET Developer | April 2014 - April 2016 (2 years)",
+                "description": "I started working during my Master degree studies, first as a student colleague, in C#. During my work I learned several .NET technologies, initially I developed an ASP.NET web application as a part of a bigger team, following the SCRUM methodology. Then, as a member of an other team, I got to know the basics of Winows 8.1 development, later I took part in the pre-development of a Cross Platform framework, with the use of WPF and UWP technologies."
+            }
+        },
+        "education": {
+            "title": "Education",
+            "msc": {
+                "title": "University of Szeged | Computer Scientist Msc",
+                "description": "( 2013 - 2015 )"
+            },
+            "bsc": {
+                "title": "University of Szeged | Software Information Technologist Bsc",
+                "description": "( 2010 - 2013 )"
+            }
+        }
+    },
+    "profile": {
+        "birthday": {
+            "year": "1991",
+            "month": "04",
+            "day": "15"
+        },
+        "profession": {
+            "software": "Software",
+            "engineer": "Engineer"
+        }
+    }
+}
