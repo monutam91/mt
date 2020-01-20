@@ -34,6 +34,17 @@
                 "title": ".NET Fejlesztő | 2014 Április - 2016 Április (2 év)",
                 "description": "Msc egyetemi tanulmányaim mellett kezdtem el dolgozni, kezdetben, mint diák munkatárs, C# nyelven. Ennek során több különböző .NET technológiát megismertem, kezdetben ASP.NET webes alkalmazást fejlesztettem egy nagyobb csapat tagjaként SCRUM metodológiát követve. Majd egy másik csapat tagjaként elsajátítottam a Windows 8.1 fejlesztés alapjait, később pedig részt vettem egy Cross Platform keretrendszer előfejlesztési munkálataiban WPF, illetve UWP technológiákkal."
             }
+        },
+        "education": {
+            "title": "Tanulmányok",
+            "msc": {
+                "title": "Szegedi Tudomány Egyetem | Programtervező Informatikus Msc",
+                "description": "( 2013 - 2015 )"
+            },
+            "bsc": {
+                "title": "Szegedi Tudomány Egyetem | Programtervező Informatikus Bsc",
+                "description": "( 2010 - 2013 )"
+            }
         }
     },
     "profile": {

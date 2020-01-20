@@ -13,10 +13,8 @@
 @import './styles/responsive';
 
 @page {
-    size: A5;
+    size: A4;
     margin: 0mm;
-    background: var(--background-color);
-    background-color: var(--background-color);
 }
 
 html {
