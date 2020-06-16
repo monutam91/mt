@@ -12,7 +12,16 @@
             "tags": []
         },
         "cv-e2e": {
-            "tags": []
+            "tags": [],
+            "implicitDependencies": ["cv"]
+        }
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/workspace/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"]
+            }
         }
     }
 }
