@@ -22,8 +22,12 @@
         },
         "experiences": {
             "title": "Tapasztalatok",
+            "griff": {
+                "title": "Senior Web fejlesztő | 2019 Szeptember - Jelenleg",
+                "description": "Senior fejlesztőként több projekten is részt vettem, mint Angular és Web szakértő. Az újonnan induló zöld mezős projektek tervezésében és elindításában való részvételem mellett egy korábbi angularJS-ben készült alkalmazás teljesítménybeli problémáit is meg kellett vizsgálnom, majd javítanom is. Jelenleg pedig a cég fő termékének, illetve alapvető infrastruktúrájának modernizálását lehetővé tévő architektúra megteremtése a feladatom, ide értve egy belső, céges keretrendszer megalkotását is."
+            },
             "nitro": {
-                "title": "Web Fejlesztő | 2019 Február - Jelenleg",
+                "title": "Web Fejlesztő | 2019 Február - 2019 Szeptember (0.5 év)",
                 "description": "Egy 5 fős csapatot erősítve készítettünk el több Angularos webalkalmazást, mely során a Back End fejlesztőivel szorosan együttműködtünk, alkalmanként pedig Front End vezérelte módon is dolgoztunk. A projektek során ismét szükség volt automata tesztek írására unit és End-To-End tesztek formájában is."
             },
             "cas-angular": {
