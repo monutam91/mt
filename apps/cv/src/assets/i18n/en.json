@@ -23,11 +23,11 @@
         "experiences": {
             "title": "Experience",
             "griff": {
-                "title": "Senior Web fejlesztő | 2019 Szeptember - Jelenleg",
+                "title": "Senior Web Developer | September 2019 - Present",
                 "description": "As a Senior Developer, I was part of many projects, mainly as an Angular and JavaScript expert. I was tasked to help bootstrapping new green-field projects. Also, I had to analyze the performance of an exisitng angularJS application to provide a plan to improve it, and I made major refactoring on it in addition. Currently, I am responsible to design an architecture to enable the modernization of the company's technology stack. Part of this is to plan a Framework for the new projects, but also to enable the migration of existing, legacy projects."
             },
             "nitro": {
-                "title": "Web Developer | February 2019 - Present",
+                "title": "Web Developer | February 2019 - September 2019 (0.5 year)",
                 "description": "As a part of a team of 5 person, we created several Angular web applications, during which we were closely cooperated with the Back End developers, occasionally we also worked in a Front End driven manner. During the development of these projects, there was a need to write automated tests, unit and End-To-End as well."
             },
             "cas-angular": {
