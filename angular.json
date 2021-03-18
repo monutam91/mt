@@ -115,6 +115,123 @@
                     }
                 }
             }
+        },
+        "coffee-quiz": {
+            "projectType": "application",
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "apps/coffee-quiz",
+            "sourceRoot": "apps/coffee-quiz/src",
+            "prefix": "mt",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/apps/coffee-quiz",
+                        "index": "apps/coffee-quiz/src/index.html",
+                        "main": "apps/coffee-quiz/src/main.ts",
+                        "polyfills": "apps/coffee-quiz/src/polyfills.ts",
+                        "tsConfig": "apps/coffee-quiz/tsconfig.app.json",
+                        "aot": true,
+                        "assets": ["apps/coffee-quiz/src/favicon.ico", "apps/coffee-quiz/src/assets"],
+                        "styles": ["apps/coffee-quiz/src/styles.scss"],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/coffee-quiz/src/environments/environment.ts",
+                                    "with": "apps/coffee-quiz/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "coffee-quiz:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "coffee-quiz:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "coffee-quiz:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/coffee-quiz/tsconfig.app.json", "apps/coffee-quiz/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**", "!apps/coffee-quiz/**/*"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/coffee-quiz/jest.config.js",
+                        "tsConfig": "apps/coffee-quiz/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "apps/coffee-quiz/src/test-setup.ts"
+                    }
+                }
+            }
+        },
+        "coffee-quiz-e2e": {
+            "root": "apps/coffee-quiz-e2e",
+            "sourceRoot": "apps/coffee-quiz-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/coffee-quiz-e2e/cypress.json",
+                        "tsConfig": "apps/coffee-quiz-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "coffee-quiz:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "coffee-quiz:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/coffee-quiz-e2e/tsconfig.e2e.json"],
+                        "exclude": ["**/node_modules/**", "!apps/coffee-quiz-e2e/**/*"]
+                    }
+                }
+            }
         }
     },
     "cli": {
@@ -139,6 +256,13 @@
         },
         "@nrwl/schematics:component": {
             "styleext": "scss"
+        },
+        "@nrwl/angular:application": {
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "unitTestRunner": "jest"
         }
     }
 }
