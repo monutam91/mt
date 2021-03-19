@@ -4,7 +4,7 @@ import { RouterModule, Route } from '@angular/router';
 export const routes: Route[] = [];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled' })],
+    imports: [RouterModule.forRoot(routes, { initialNavigation: 'enabled', relativeLinkResolution: 'legacy' })],
     exports: [RouterModule],
 })
 export class AppRoutingModule {}
