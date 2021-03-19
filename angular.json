@@ -44,14 +44,14 @@
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
-                            "extractCss": true,
                             "namedChunks": false,
                             "aot": true,
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true
                         }
-                    }
+                    },
+                    "outputs": ["{options.outputPath}"]
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
@@ -80,7 +80,8 @@
                         "styles": ["apps/cv/src/styles.scss"],
                         "scripts": [],
                         "assets": ["apps/cv/src/favicon.ico", "apps/cv/src/assets"]
-                    }
+                    },
+                    "outputs": ["coverage/apps/cv/"]
                 },
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
@@ -151,7 +152,6 @@
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
-                            "extractCss": true,
                             "namedChunks": false,
                             "extractLicenses": true,
                             "vendorChunk": false,
@@ -169,7 +169,8 @@
                                 }
                             ]
                         }
-                    }
+                    },
+                    "outputs": ["{options.outputPath}"]
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
@@ -199,10 +200,9 @@
                     "builder": "@nrwl/jest:jest",
                     "options": {
                         "jestConfig": "apps/coffee-quiz/jest.config.js",
-                        "tsConfig": "apps/coffee-quiz/tsconfig.spec.json",
-                        "passWithNoTests": true,
-                        "setupFile": "apps/coffee-quiz/src/test-setup.ts"
-                    }
+                        "passWithNoTests": true
+                    },
+                    "outputs": ["coverage/apps/coffee-quiz"]
                 }
             }
         },
