@@ -43,5 +43,9 @@ describe('GameSessionFacade', () => {
             store = TestBed.inject(Store);
             facade = TestBed.inject(GameSessionFacade);
         });
+
+        it('should be created', () => {
+            expect(facade).toBeTruthy();
+        });
     });
 });
