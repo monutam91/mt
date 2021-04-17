@@ -1,1 +1,3 @@
-<p>game-session works!</p>
+<div class="game-session">
+    <input *ngIf="!(hasSession$ | async)" type="text" name="player-name" />
+</div>

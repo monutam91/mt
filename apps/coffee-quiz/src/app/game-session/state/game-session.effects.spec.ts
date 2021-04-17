@@ -20,4 +20,8 @@ describe('GameSessionEffects', () => {
 
         effects = TestBed.inject(GameSessionEffects);
     });
+
+    it('should create', () => {
+        expect(effects).toBeTruthy()
+    })
 });

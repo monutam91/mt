@@ -6,3 +6,5 @@ import { GAME_SESSION_FEATURE_KEY, State, GameSessionPartialState } from './game
 export const getGameSessionState = createFeatureSelector<GameSessionPartialState, State>(GAME_SESSION_FEATURE_KEY);
 
 export const getSessionToken = createSelector(getGameSessionState, (state: State) => state.sessionToken);
+
+export const hasSession = createSelector(getSessionToken, (token) => !!token);

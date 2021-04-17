@@ -1,19 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { DefaultProjectorFn, MemoizedSelector } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import { GameSessionComponent } from './game-session.component';
-import * as fromGameSession from './state/game-session.reducer';
-import { getSessionToken } from './state/game-session.selectors';
+import { hasSession } from './state/game-session.selectors';
 
-interface TestSchema {
-    readonly [fromGameSession.GAME_SESSION_FEATURE_KEY]: fromGameSession.State;
-}
-
-fdescribe('GameSessionComponent', () => {
+describe('GameSessionComponent', () => {
     let component: GameSessionComponent;
     let fixture: ComponentFixture<GameSessionComponent>;
     let store: MockStore;
+    let mockHasSessionSelector: MemoizedSelector<any, boolean, DefaultProjectorFn<boolean>>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -24,27 +21,38 @@ fdescribe('GameSessionComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(GameSessionComponent);
+        store = TestBed.inject(MockStore);
+        mockHasSessionSelector = store.overrideSelector(hasSession, false);
+
         component = fixture.componentInstance;
         fixture.detectChanges();
-
-        store = TestBed.inject(MockStore);
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should show the input for Player name, when there is no session token', () => {
-        store.overrideSelector(getSessionToken, null);
-        fixture.detectChanges();
+    describe('Given the user has an active session already', () => {
+        beforeEach(() => {
+            mockHasSessionSelector.setResult(true);
+            store.refreshState();
+            fixture.detectChanges();
+        });
 
-        expect(fixture.debugElement.query(By.css('[name=player-name]'))).toBeTruthy();
+        it('Then the Player name input should not exist', () => {
+            expect(fixture.debugElement.query(By.css('[name=player-name]'))).toBeFalsy();
+        });
     });
 
-    it('should not show the player name input if we already have a session', () => {
-        store.overrideSelector(getSessionToken, 'FAKE-TOKEN');
-        fixture.detectChanges();
+    describe('Given the user does not have an active session', () => {
+        beforeEach(() => {
+            mockHasSessionSelector.setResult(false);
+            store.refreshState();
+            fixture.detectChanges();
+        });
 
-        expect(fixture.debugElement.query(By.css('[name=player-name]'))).toBeFalsy();
+        it('Then the Player name input should exist', () => {
+            expect(fixture.debugElement.query(By.css('[name=player-name]'))).toBeTruthy();
+        });
     });
 });
