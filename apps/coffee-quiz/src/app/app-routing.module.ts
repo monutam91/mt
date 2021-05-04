@@ -9,6 +9,10 @@ export const routes: Route[] = [
         loadChildren: () => import('./game-session/game-session.module').then((m) => m.GameSessionModule),
         canActivate: [GameSessionGuard],
     },
+    {
+        path: 'game',
+        loadChildren: () => import('./game/game.module').then((m) => m.GameModule),
+    },
 ];
 
 @NgModule({
