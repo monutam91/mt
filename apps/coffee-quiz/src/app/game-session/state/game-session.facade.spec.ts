@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { readFirst } from '@nrwl/angular/testing';
-
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule, Store } from '@ngrx/store';
 
-import { NxModule } from '@nrwl/angular';
+import { EMPTY, of } from 'rxjs';
+
 import { GameSessionEffects } from './game-session.effects';
 import { GameSessionFacade } from './game-session.facade';
-
-import * as GameSessionSelectors from './game-session.selectors';
-import * as GameSessionActions from './game-session.actions';
-import { GAME_SESSION_FEATURE_KEY, State, initialState, reducer } from './game-session.reducer';
+import { GAME_SESSION_FEATURE_KEY, State, reducer } from './game-session.reducer';
+import { SessionService } from '../services/session.service';
 
 interface TestSchema {
     gameSession: State;
 }
 
 describe('GameSessionFacade', () => {
+    const fakeToken = 'FAKE_TOKEN';
     let facade: GameSessionFacade;
     let store: Store<TestSchema>;
+
+    let mockSessionService: SessionService;
 
     beforeEach(() => {});
 
@@ -30,12 +30,21 @@ describe('GameSessionFacade', () => {
                     StoreModule.forFeature(GAME_SESSION_FEATURE_KEY, reducer),
                     EffectsModule.forFeature([GameSessionEffects]),
                 ],
-                providers: [GameSessionFacade],
+                providers: [
+                    GameSessionFacade,
+                    {
+                        provide: SessionService,
+                        useValue: {
+                            requestSessionToken: jest.fn(() => of(fakeToken)),
+                            resetSessionToken: jest.fn(() => EMPTY),
+                        },
+                    },
+                ],
             })
             class CustomFeatureModule {}
 
             @NgModule({
-                imports: [NxModule.forRoot(), StoreModule.forRoot({}), EffectsModule.forRoot([]), CustomFeatureModule],
+                imports: [StoreModule.forRoot({}), EffectsModule.forRoot([]), CustomFeatureModule],
             })
             class RootModule {}
             TestBed.configureTestingModule({ imports: [RootModule] });

@@ -7,4 +7,6 @@ export const getGameSessionState = createFeatureSelector<GameSessionPartialState
 
 export const getSessionToken = createSelector(getGameSessionState, (state: State) => state.sessionToken);
 
-export const hasSession = createSelector(getSessionToken, (token) => !!token);
+export const hasSession = createSelector(getSessionToken, (token) => {
+    return !!token;
+});

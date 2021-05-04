@@ -1,17 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { hot } from '@nrwl/angular/testing';
 
 import { of, throwError } from 'rxjs';
 
 import { SessionService } from '../services/session.service';
-import { createSession, createSessionFailed, createSessionSuccess } from './game-session.actions';
+import {
+    createSession,
+    createSessionFailed,
+    createSessionSuccess,
+    resetSession,
+    resetSessionFailed,
+    resetSessionSuccess,
+} from './game-session.actions';
 
 import { GameSessionEffects } from './game-session.effects';
+import { getSessionToken } from './game-session.selectors';
 
 describe('GameSessionEffects', () => {
     const fakeToken = 'FAKE_TOKEN';
     let actions;
+    let store: MockStore;
     let effects: GameSessionEffects;
     let mockSessionService: SessionService;
 
@@ -26,11 +36,15 @@ describe('GameSessionEffects', () => {
                         requestSessionToken: jest.fn(() => of(fakeToken)),
                     },
                 },
+                provideMockStore(),
             ],
         });
 
+        store = TestBed.inject(MockStore);
         effects = TestBed.inject(GameSessionEffects);
         mockSessionService = TestBed.inject(SessionService);
+
+        store.overrideSelector(getSessionToken, fakeToken);
     });
 
     it('should create', () => {
@@ -65,6 +79,39 @@ describe('GameSessionEffects', () => {
 
                 expect(effects.createSession$).toBeObservable(expected);
                 expect(mockSessionService.requestSessionToken).toHaveBeenCalled();
+            });
+        });
+    });
+
+    describe('Given a resetSession action dispatched', () => {
+        describe('When the reset succeeds', () => {
+            beforeEach(() => {
+                mockSessionService.resetSessionToken = jest.fn(() => of(null));
+            });
+
+            it(`Then a resetSessionSuccess action should be dispatched`, () => {
+                actions = hot('-a', { a: resetSession() });
+
+                const expected = hot('-a', { a: resetSessionSuccess() });
+
+                expect(effects.resetSession$).toBeObservable(expected);
+                expect(mockSessionService.resetSessionToken).toHaveBeenCalledWith(fakeToken);
+            });
+        });
+
+        describe('When the reset failes', () => {
+            const mockError = new Error('Mock Error');
+            beforeEach(() => {
+                mockSessionService.resetSessionToken = jest.fn(() => throwError(mockError));
+            });
+
+            it(`Then a resetSessionFailed action should be dispatched`, () => {
+                actions = hot('-a', { a: resetSession() });
+
+                const expected = hot('-a', { a: resetSessionFailed({ reason: mockError }) });
+
+                expect(effects.resetSession$).toBeObservable(expected);
+                expect(mockSessionService.resetSessionToken).toHaveBeenCalledWith(fakeToken);
             });
         });
     });

@@ -8,3 +8,9 @@ export const createSessionSuccess = createAction(
 );
 
 export const createSessionFailed = createAction('[Game Session] Creation Failed', props<{ reason: Error }>());
+
+export const resetSession = createAction('[Game Session] Reset');
+
+export const resetSessionFailed = createAction('[Game Session] Reset Failed', props<{ reason: Error }>());
+
+export const resetSessionSuccess = createAction('[Game Session] Reset Successful');

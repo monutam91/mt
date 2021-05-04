@@ -2,27 +2,38 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DefaultProjectorFn, MemoizedSelector } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { of, Subject } from 'rxjs';
 
 import { GameSessionComponent } from './game-session.component';
+import { GameSessionFacade } from './state/game-session.facade';
 import { hasSession } from './state/game-session.selectors';
 
 describe('GameSessionComponent', () => {
     let component: GameSessionComponent;
     let fixture: ComponentFixture<GameSessionComponent>;
-    let store: MockStore;
-    let mockHasSessionSelector: MemoizedSelector<any, boolean, DefaultProjectorFn<boolean>>;
+    let mockFacade: GameSessionFacade;
+    let mockHasSession$: Subject<boolean>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [GameSessionComponent],
-            providers: [provideMockStore()],
+            providers: [
+                {
+                    provide: GameSessionFacade,
+                    useValue: {
+                        get hasSession$() {
+                            return mockHasSession$;
+                        },
+                    },
+                },
+            ],
         }).compileComponents();
     });
 
     beforeEach(() => {
+        mockHasSession$ = new Subject();
         fixture = TestBed.createComponent(GameSessionComponent);
-        store = TestBed.inject(MockStore);
-        mockHasSessionSelector = store.overrideSelector(hasSession, false);
+        mockFacade = TestBed.inject(GameSessionFacade);
 
         component = fixture.componentInstance;
         fixture.detectChanges();
@@ -34,8 +45,7 @@ describe('GameSessionComponent', () => {
 
     describe('Given the user has an active session already', () => {
         beforeEach(() => {
-            mockHasSessionSelector.setResult(true);
-            store.refreshState();
+            mockHasSession$.next(true);
             fixture.detectChanges();
         });
 
@@ -46,8 +56,7 @@ describe('GameSessionComponent', () => {
 
     describe('Given the user does not have an active session', () => {
         beforeEach(() => {
-            mockHasSessionSelector.setResult(false);
-            store.refreshState();
+            mockHasSession$.next(false);
             fixture.detectChanges();
         });
 
