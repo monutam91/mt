@@ -1,3 +1,16 @@
 <div class="game-session">
-    <input *ngIf="!(hasSession$ | async)" type="text" name="player-name" />
+    <mat-card class="content-card">
+        <mat-card-content class="content-card__content">
+            <h2 class="content-card__welcome">
+                Welcome to the wonderful game of<br /><span class="game-name" color="accent">Coffee Quiz!</span>
+            </h2>
+            <h1 class="content-card__give-title" color="accent">Give us your name!</h1>
+            <form *ngIf="!(hasSession$ | async)" class="name-form">
+                <mat-form-field appearance="standard" color="accent">
+                    <input type="text" name="player-name" matInput placeholder="Player name" />
+                </mat-form-field>
+                <button class="name-form__submit" type="submit" mat-raised-button color="primary">Gib!</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
 </div>

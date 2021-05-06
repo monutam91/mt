@@ -1,12 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DefaultProjectorFn, MemoizedSelector } from '@ngrx/store';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
+import { MockModule } from 'ng-mocks';
 
 import { GameSessionComponent } from './game-session.component';
 import { GameSessionFacade } from './state/game-session.facade';
-import { hasSession } from './state/game-session.selectors';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 describe('GameSessionComponent', () => {
     let component: GameSessionComponent;
@@ -26,6 +28,12 @@ describe('GameSessionComponent', () => {
                         },
                     },
                 },
+            ],
+            imports: [
+                MockModule(MatButtonModule),
+                MockModule(MatCardModule),
+                MockModule(MatInputModule),
+                MockModule(MatFormFieldModule),
             ],
         }).compileComponents();
     });

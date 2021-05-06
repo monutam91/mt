@@ -1,0 +1,39 @@
+@import './material-theme.scss';
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+@include angular-material-theme($theme);
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+    mt-root {
+        width: 100%;
+        height: 100%;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        div,
+        p,
+        span,
+        pre {
+            &[color='accent'] {
+                color: mat-color($accent);
+            }
+
+            &[color='primary'] {
+                color: mat-color($primary);
+            }
+        }
+    }
+}
