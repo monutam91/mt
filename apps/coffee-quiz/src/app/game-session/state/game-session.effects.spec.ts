@@ -1,9 +1,14 @@
+import { Location } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { hot } from '@nrwl/angular/testing';
+import { MockComponent } from 'ng-mocks';
 
 import { of, throwError } from 'rxjs';
+import { GameComponent } from '../../game/game.component';
 
 import { SessionService } from '../services/session.service';
 import {
@@ -38,6 +43,7 @@ describe('GameSessionEffects', () => {
                 },
                 provideMockStore(),
             ],
+            imports: [RouterTestingModule.withRoutes([{ path: 'game', component: MockComponent(GameComponent) }])],
         });
 
         store = TestBed.inject(MockStore);
@@ -113,6 +119,18 @@ describe('GameSessionEffects', () => {
                 expect(effects.resetSession$).toBeObservable(expected);
                 expect(mockSessionService.resetSessionToken).toHaveBeenCalledWith(fakeToken);
             });
+        });
+    });
+
+    describe('Given a createSessionSuccess action dispatched', () => {
+        it('Then the effect should navigate to the main game', () => {
+            const router = TestBed.inject(Router);
+            router.navigateByUrl = jest.fn(() => Promise.resolve(true));
+            actions = hot('-a', { a: createSessionSuccess({ name: 'Test Elek', token: fakeToken }) });
+
+            const expected = hot('-a', { a: createSessionSuccess({ name: 'Test Elek', token: fakeToken }) });
+            expect(effects.navigateToMainGame$).toBeObservable(expected);
+            expect(router.navigateByUrl).toBeCalledWith('/game');
         });
     });
 });
