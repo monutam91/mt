@@ -138,7 +138,7 @@
                         "tsConfig": "apps/coffee-quiz/tsconfig.app.json",
                         "aot": true,
                         "assets": ["apps/coffee-quiz/src/favicon.ico", "apps/coffee-quiz/src/assets"],
-                        "styles": ["apps/coffee-quiz/src/styles.scss"],
+                        "styles": ["apps/coffee-quiz/src/styles/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {
