@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { select, Store, Action } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { EmptyNameError } from '../models/create-session-errors.model';
 
 import * as GameSessionActions from './game-session.actions';
-import * as GameSessionFeature from './game-session.reducer';
 import * as GameSessionSelectors from './game-session.selectors';
 
 @Injectable()
@@ -14,4 +14,12 @@ export class GameSessionFacade {
     }
 
     constructor(private store: Store) {}
+
+    public createSession(name: string) {
+        if (!name || !name.trim()) {
+            throw new EmptyNameError();
+        }
+
+        this.store.dispatch(GameSessionActions.createSession({ name }));
+    }
 }

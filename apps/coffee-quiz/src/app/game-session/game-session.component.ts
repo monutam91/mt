@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
 import { GameSessionFacade } from './state/game-session.facade';
-import { hasSession } from './state/game-session.selectors';
 
 @Component({
     selector: 'mt-game-session',
@@ -13,8 +12,19 @@ import { hasSession } from './state/game-session.selectors';
 })
 export class GameSessionComponent {
     public hasSession$: Observable<boolean>;
+    public playerForm: FormGroup;
 
     constructor(private gameSessionFacade: GameSessionFacade) {
         this.hasSession$ = gameSessionFacade.hasSession$;
+
+        this.playerForm = new FormGroup({
+            playerName: new FormControl('', [Validators.required]),
+        });
+    }
+
+    public submitPlayerForm() {
+        if (this.playerForm.valid) {
+            this.gameSessionFacade.createSession(this.playerForm.value.playerName);
+        }
     }
 }

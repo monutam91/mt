@@ -5,9 +5,15 @@
                 Welcome to the wonderful game of<br /><span class="game-name" color="accent">Coffee Quiz!</span>
             </h2>
             <h1 class="content-card__give-title" color="accent">Give us your name!</h1>
-            <form *ngIf="!(hasSession$ | async)" class="name-form">
+            <form
+                *ngIf="!(hasSession$ | async)"
+                class="name-form"
+                (ngSubmit)="submitPlayerForm()"
+                [formGroup]="playerForm"
+            >
                 <mat-form-field appearance="standard" color="accent">
-                    <input type="text" name="player-name" matInput placeholder="Player name" />
+                    <mat-label>Player name</mat-label>
+                    <input type="text" name="player-name" matInput required formControlName="playerName" />
                 </mat-form-field>
                 <button class="name-form__submit" type="submit" mat-raised-button color="primary">Gib!</button>
             </form>
